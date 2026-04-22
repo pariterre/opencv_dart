@@ -8,6 +8,8 @@ export 'src/contrib/aruco.dart';
 export 'src/contrib/aruco_async.dart';
 export 'src/contrib/aruco_dict.dart';
 export 'src/contrib/charuco_board.dart';
+export 'src/contrib/charuco_detector.dart';
+export 'src/contrib/charuco_detector_async.dart';
 export 'src/contrib/freetype.dart';
 export 'src/contrib/img_hash.dart';
 export 'src/contrib/quality.dart';

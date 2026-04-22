@@ -122,4 +122,25 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
     cvRun(() => ccontrib.cv_aruco_charucoBoard_getObjPoints(ref, out.ptr));
     return out;
   }
+
+  (Mat objPoints, Mat imgPoints) matchImagePoints(
+    VecPoint2f detectedCharuco,
+    VecI32 detectedIds, {
+    Mat? objPoints,
+    Mat? imgPoints,
+  }) {
+    objPoints ??= Mat.empty();
+    imgPoints ??= Mat.empty();
+    cvRun(
+      () => ccontrib.cv_aruco_charucoBoard_matchImagePoints(
+        ref,
+        detectedCharuco.ref,
+        detectedIds.ref,
+        objPoints!.ref,
+        imgPoints!.ref,
+        ffi.nullptr,
+      ),
+    );
+    return (objPoints, imgPoints);
+  }
 }
