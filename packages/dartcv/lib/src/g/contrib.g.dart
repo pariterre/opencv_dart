@@ -480,6 +480,106 @@ external ffi.Pointer<CvStatus> cv_aruco_generateImageMarker(
   imp$1.CvCallback_0 callback,
 );
 
+@ffi.Native<ffi.Void Function(CharucoBoardPtr)>()
+external void cv_aruco_charucoBoard_close(
+  CharucoBoardPtr self$1,
+);
+
+@ffi.Native<ffi.Bool Function(CharucoBoard, VecI32)>()
+external bool cv_aruco_charucoBoard_checkCharucoCornersCollinear(
+  CharucoBoard self$1,
+  VecI32 charucoIds,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Pointer<CharucoBoard>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create(
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(CvSize, ffi.Float, ffi.Float, ArucoDictionary, ffi.Pointer<CharucoBoard>)
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_1(
+  CvSize size,
+  double squareLength,
+  double markerLength,
+  ArucoDictionary dictionary,
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CvSize,
+    ffi.Float,
+    ffi.Float,
+    ArucoDictionary,
+    VecI32,
+    ffi.Pointer<CharucoBoard>,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_2(
+  CvSize size,
+  double squareLength,
+  double markerLength,
+  ArucoDictionary dictionary,
+  VecI32 ids,
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, CvSize, Mat, ffi.Int, ffi.Int, imp$1.CvCallback_0)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_generateImage(
+  CharucoBoard self$1,
+  CvSize outSize,
+  Mat img,
+  int marginSize,
+  int borderBits,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecPoint3f>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getChessboardCorners(
+  CharucoBoard self$1,
+  ffi.Pointer<VecPoint3f> rval,
+);
+
+@ffi.Native<CvSize Function(CharucoBoard)>()
+external CvSize cv_aruco_charucoBoard_getChessboardSize(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecI32>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getIds(
+  CharucoBoard self$1,
+  ffi.Pointer<VecI32> rval,
+);
+
+@ffi.Native<ffi.Bool Function(CharucoBoard)>()
+external bool cv_aruco_charucoBoard_getLegacyPattern(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Float Function(CharucoBoard)>()
+external double cv_aruco_charucoBoard_getMarkerLength(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecVecPoint3f>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getObjPoints(
+  CharucoBoard self$1,
+  ffi.Pointer<VecVecPoint3f> rval,
+);
+
+@ffi.Native<ffi.Float Function(CharucoBoard)>()
+external double cv_aruco_charucoBoard_getSquareLength(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Void Function(CharucoBoard, ffi.Bool)>()
+external void cv_aruco_charucoBoard_setLegacyPattern(
+  CharucoBoard self$1,
+  bool value,
+);
+
 @ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Int, ffi.Pointer<ArucoDictionary>)>()
 external ffi.Pointer<CvStatus> cv_aruco_getPredefinedDictionary(
   int dictionaryId,
@@ -1547,6 +1647,8 @@ class _SymbolAddresses {
   const _SymbolAddresses();
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDictionaryPtr)>> get cv_aruco_Dictionary_close =>
       ffi.Native.addressOf(self.cv_aruco_Dictionary_close);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(CharucoBoardPtr)>> get cv_aruco_charucoBoard_close =>
+      ffi.Native.addressOf(self.cv_aruco_charucoBoard_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDetectorPtr)>> get cv_aruco_arucoDetector_close =>
       ffi.Native.addressOf(self.cv_aruco_arucoDetector_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDetectorParamsPtr)>>
@@ -1598,6 +1700,12 @@ final class ArucoDictionary extends ffi.Struct {
 }
 
 typedef ArucoDictionaryPtr = ffi.Pointer<ArucoDictionary>;
+
+final class CharucoBoard extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+typedef CharucoBoardPtr = ffi.Pointer<CharucoBoard>;
 
 const int BLOCK_MEAN_HASH_MODE_0 = 0;
 
@@ -1748,11 +1856,13 @@ typedef VecF32 = imp$1.VecF32;
 typedef VecF64 = imp$1.VecF64;
 typedef VecI32 = imp$1.VecI32;
 typedef VecMat = imp$1.VecMat;
+typedef VecPoint3f = imp$1.VecPoint3f;
 typedef VecPoint3i = imp$1.VecPoint3i;
 typedef VecRect = imp$1.VecRect;
 typedef VecVecChar = imp$1.VecVecChar;
 typedef VecVecPoint = imp$1.VecVecPoint;
 typedef VecVecPoint2f = imp$1.VecVecPoint2f;
+typedef VecVecPoint3f = imp$1.VecVecPoint3f;
 
 final class WeChatQRCode extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
