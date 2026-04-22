@@ -403,3 +403,108 @@ CvStatus* cv_aruco_generateImageMarker(
     }
     END_WRAP
 }
+
+CvStatus* cv_aruco_charucoBoard_create(CharucoBoard* rval) {
+    BEGIN_WRAP
+    rval->ptr = new cv::aruco::CharucoBoard();
+    END_WRAP
+}
+
+CvStatus* cv_aruco_charucoBoard_create_1(
+    CvSize size,
+    float squareLength,
+    float markerLength,
+    ArucoDictionary dictionary,
+    CharucoBoard* rval
+) {
+    BEGIN_WRAP
+    rval->ptr = new cv::aruco::CharucoBoard(
+        cv::Size(size.width, size.height),
+        squareLength,
+        markerLength,
+        CVDEREF(dictionary)
+    );
+    END_WRAP
+}
+
+CvStatus* cv_aruco_charucoBoard_create_2(
+    CvSize size,
+    float squareLength,
+    float markerLength,
+    ArucoDictionary dictionary,
+    VecI32 ids,
+    CharucoBoard* rval
+) {
+    BEGIN_WRAP
+    rval->ptr = new cv::aruco::CharucoBoard(
+        cv::Size(size.width, size.height),
+        squareLength,
+        markerLength,
+        CVDEREF(dictionary),
+        CVDEREF(ids)
+    );
+    END_WRAP
+}
+
+void cv_aruco_charucoBoard_close(CharucoBoardPtr self) {
+    CVD_FREE(self);
+}
+
+bool cv_aruco_charucoBoard_checkCharucoCornersCollinear(CharucoBoard self, VecI32 charucoIds) {
+    return self.ptr->checkCharucoCornersCollinear(CVDEREF(charucoIds));
+}
+
+CvStatus* cv_aruco_charucoBoard_generateImage(
+    CharucoBoard self,
+    CvSize outSize,
+    Mat img,
+    int marginSize,
+    int borderBits,
+    CvCallback_0 callback
+) {
+    BEGIN_WRAP
+    self.ptr->generateImage(cv::Size(outSize.width, outSize.height), CVDEREF(img), marginSize, borderBits);
+    if (callback != nullptr) {
+        callback();
+    }
+    END_WRAP
+}
+
+CvStatus* cv_aruco_charucoBoard_getChessboardCorners(CharucoBoard self, VecPoint3f* rval) {
+    BEGIN_WRAP
+    rval->ptr = new std::vector<cv::Point3f>(self.ptr->getChessboardCorners());
+    END_WRAP
+}
+
+CvSize cv_aruco_charucoBoard_getChessboardSize(CharucoBoard self) {
+    cv::Size size = self.ptr->getChessboardSize();
+    return CvSize{size.width, size.height};
+}
+
+float cv_aruco_charucoBoard_getMarkerLength(CharucoBoard self) {
+    return self.ptr->getMarkerLength();
+}
+
+float cv_aruco_charucoBoard_getSquareLength(CharucoBoard self) {
+    return self.ptr->getSquareLength();
+}
+
+bool cv_aruco_charucoBoard_getLegacyPattern(CharucoBoard self) {
+    return self.ptr->getLegacyPattern();
+}
+
+void cv_aruco_charucoBoard_setLegacyPattern(CharucoBoard self, bool value) {
+    self.ptr->setLegacyPattern(value);
+}
+
+CvStatus* cv_aruco_charucoBoard_getIds(CharucoBoard self, VecI32* rval) {
+    BEGIN_WRAP
+    rval->ptr = new std::vector<int>(self.ptr->getIds());
+    END_WRAP
+}
+
+CvStatus* cv_aruco_charucoBoard_getObjPoints(CharucoBoard self, VecVecPoint3f* rval) {
+    BEGIN_WRAP
+    rval->ptr = new std::vector<std::vector<cv::Point3f>>(self.ptr->getObjPoints());
+    END_WRAP
+}

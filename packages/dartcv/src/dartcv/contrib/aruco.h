@@ -10,6 +10,7 @@
 
 #ifdef __cplusplus
 #include <opencv2/aruco.hpp>
+#include <opencv2/objdetect/aruco_board.hpp>
 extern "C" {
 #endif
 
@@ -19,10 +20,12 @@ extern "C" {
 CVD_TYPEDEF(cv::aruco::Dictionary, ArucoDictionary);
 CVD_TYPEDEF(cv::aruco::DetectorParameters, ArucoDetectorParams);
 CVD_TYPEDEF(cv::aruco::ArucoDetector, ArucoDetector);
+CVD_TYPEDEF(cv::aruco::CharucoBoard, CharucoBoard);
 #else
 CVD_TYPEDEF(void, ArucoDictionary);
 CVD_TYPEDEF(void, ArucoDetectorParams);
 CVD_TYPEDEF(void, ArucoDetector);
+CVD_TYPEDEF(void, CharucoBoard);
 #endif
 
 CvStatus* cv_aruco_detectorParameters_create(ArucoDetectorParams* rval);
@@ -146,6 +149,41 @@ CvStatus* cv_aruco_drawDetectedMarkers(
 CvStatus* cv_aruco_generateImageMarker(
     int dictionaryId, int id, int sidePixels, int borderBits, Mat dst, CvCallback_0 callback
 );
+
+CvStatus* cv_aruco_charucoBoard_create(CharucoBoard* rval);
+CvStatus* cv_aruco_charucoBoard_create_1(
+    CvSize size,
+    float squareLength,
+    float markerLength,
+    ArucoDictionary dictionary,
+    CharucoBoard* rval
+);
+CvStatus* cv_aruco_charucoBoard_create_2(
+    CvSize size,
+    float squareLength,
+    float markerLength,
+    ArucoDictionary dictionary,
+    VecI32 ids,
+    CharucoBoard* rval
+);
+void cv_aruco_charucoBoard_close(CharucoBoardPtr self);
+bool cv_aruco_charucoBoard_checkCharucoCornersCollinear(CharucoBoard self, VecI32 charucoIds);
+CvStatus* cv_aruco_charucoBoard_generateImage(
+    CharucoBoard self,
+    CvSize outSize,
+    Mat img,
+    int marginSize,
+    int borderBits,
+    CvCallback_0 callback
+);
+CvStatus* cv_aruco_charucoBoard_getChessboardCorners(CharucoBoard self, VecPoint3f* rval);
+CvSize cv_aruco_charucoBoard_getChessboardSize(CharucoBoard self);
+float cv_aruco_charucoBoard_getMarkerLength(CharucoBoard self);
+float cv_aruco_charucoBoard_getSquareLength(CharucoBoard self);
+bool cv_aruco_charucoBoard_getLegacyPattern(CharucoBoard self);
+void cv_aruco_charucoBoard_setLegacyPattern(CharucoBoard self, bool value);
+CvStatus* cv_aruco_charucoBoard_getIds(CharucoBoard self, VecI32* rval);
+CvStatus* cv_aruco_charucoBoard_getObjPoints(CharucoBoard self, VecVecPoint3f* rval);
 
 #ifdef __cplusplus
 }
