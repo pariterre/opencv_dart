@@ -24,8 +24,10 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
     }
   }
 
-  factory CharucoBoard.fromPointer(cvg.CharucoBoardPtr ptr, [bool attach = true]) =>
-      CharucoBoard._(ptr, attach);
+  factory CharucoBoard.fromPointer(
+    cvg.CharucoBoardPtr ptr, [
+    bool attach = true,
+  ]) => CharucoBoard._(ptr, attach);
 
   factory CharucoBoard.empty() {
     final p = calloc<cvg.CharucoBoard>();
@@ -78,7 +80,12 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
   bool checkCharucoCornersCollinear(VecI32 charucoIds) =>
       ccontrib.cv_aruco_charucoBoard_checkCharucoCornersCollinear(ref, charucoIds.ref);
 
-  Mat generateImage((int, int) outSize, {OutputArray? img, int marginSize = 0, int borderBits = 1}) {
+  Mat generateImage(
+    (int, int) outSize, {
+    OutputArray? img,
+    int marginSize = 0,
+    int borderBits = 1,
+  }) {
     img ??= Mat.empty();
     final size = outSize.cvd;
     cvRun(
@@ -97,7 +104,9 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
 
   VecPoint3f get chessboardCorners {
     final corners = VecPoint3f();
-    cvRun(() => ccontrib.cv_aruco_charucoBoard_getChessboardCorners(ref, corners.ptr));
+    cvRun(
+      () => ccontrib.cv_aruco_charucoBoard_getChessboardCorners(ref, corners.ptr),
+    );
     return corners;
   }
 

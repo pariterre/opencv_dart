@@ -6,6 +6,8 @@ library cv.contrib;
 
 import 'dart:ffi' as ffi;
 
+import 'package:ffi/ffi.dart';
+
 import '../core/base.dart';
 import '../core/cv_vec.dart';
 import '../core/mat.dart';
@@ -17,8 +19,15 @@ import 'charuco_board.dart';
 import 'charuco_detector.dart';
 
 extension CharucoDetectorAsync on CharucoDetector {
-  Future<(VecPoint2f charucoCorners, VecI32 charucoIds, VecVecPoint2f markerCorners, VecI32 markerIds)>
-      detectBoardAsync(
+  Future<
+    (
+      VecPoint2f charucoCorners,
+      VecI32 charucoIds,
+      VecVecPoint2f markerCorners,
+      VecI32 markerIds,
+    )
+  >
+  detectBoardAsync(
     InputArray image, {
     VecVecPoint2f? markerCorners,
     VecI32? markerIds,
@@ -41,8 +50,15 @@ extension CharucoDetectorAsync on CharucoDetector {
     );
   }
 
-  Future<(VecVecPoint2f diamondCorners, VecVec4i diamondIds, VecVecPoint2f markerCorners, VecI32 markerIds)>
-      detectDiamondsAsync(
+  Future<
+    (
+      VecVecPoint2f diamondCorners,
+      VecVec4i diamondIds,
+      VecVecPoint2f markerCorners,
+      VecI32 markerIds,
+    )
+  >
+  detectDiamondsAsync(
     InputArray image, {
     VecVecPoint2f? markerCorners,
     VecI32? markerIds,
