@@ -538,10 +538,18 @@ files:
         name: ArucoDetectorParams
       c:@S@ArucoDictionary:
         name: ArucoDictionary
+      c:@S@ArucoRefineParams:
+        name: ArucoRefineParams
       c:@S@BlockMeanHash:
         name: BlockMeanHash
       c:@S@Box:
         name: Box
+      c:@S@CharucoBoard:
+        name: CharucoBoard
+      c:@S@CharucoDetector:
+        name: CharucoDetector
+      c:@S@CharucoDetectorParams:
+        name: CharucoDetectorParams
       c:@S@EdgeBoxes:
         name: EdgeBoxes
       c:@S@EdgeDrawing:
@@ -576,6 +584,14 @@ files:
         name: ArucoDetectorPtr
       c:aruco.h@T@ArucoDictionaryPtr:
         name: ArucoDictionaryPtr
+      c:aruco.h@T@ArucoRefineParamsPtr:
+        name: ArucoRefineParamsPtr
+      c:aruco.h@T@CharucoBoardPtr:
+        name: CharucoBoardPtr
+      c:aruco.h@T@CharucoDetectorParamsPtr:
+        name: CharucoDetectorParamsPtr
+      c:aruco.h@T@CharucoDetectorPtr:
+        name: CharucoDetectorPtr
       c:freetype.h@T@FreeType2Ptr:
         name: FreeType2Ptr
       c:img_hash.h@T@BlockMeanHashPtr:
@@ -608,16 +624,24 @@ files:
         name: VecI32
       c:types.h@T@VecMat:
         name: VecMat
+      c:types.h@T@VecPoint2f:
+        name: VecPoint2f
+      c:types.h@T@VecPoint3f:
+        name: VecPoint3f
       c:types.h@T@VecPoint3i:
         name: VecPoint3i
       c:types.h@T@VecRect:
         name: VecRect
+      c:types.h@T@VecVec4i:
+        name: VecVec4i
       c:types.h@T@VecVecChar:
         name: VecVecChar
       c:types.h@T@VecVecPoint:
         name: VecVecPoint
       c:types.h@T@VecVecPoint2f:
         name: VecVecPoint2f
+      c:types.h@T@VecVecPoint3f:
+        name: VecVecPoint3f
       c:wechat_qrcode.h@T@WeChatQRCodePtr:
         name: WeChatQRCodePtr
       c:ximgproc.h@T@EdgeBoxesPtr:

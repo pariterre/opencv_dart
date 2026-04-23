@@ -132,6 +132,325 @@ external ffi.Pointer<CvStatus> cv_aruco_arucoDetector_detectMarkers(
   imp$1.CvCallback_0 callback,
 );
 
+@ffi.Native<ffi.Bool Function(CharucoBoard, VecI32)>()
+external bool cv_aruco_charucoBoard_checkCharucoCornersCollinear(
+  CharucoBoard self$1,
+  VecI32 charucoIds,
+);
+
+@ffi.Native<ffi.Void Function(CharucoBoardPtr)>()
+external void cv_aruco_charucoBoard_close(
+  CharucoBoardPtr self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Pointer<CharucoBoard>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create(
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(CvSize, ffi.Float, ffi.Float, ArucoDictionary, ffi.Pointer<CharucoBoard>)
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_1(
+  CvSize size,
+  double squareLength,
+  double markerLength,
+  ArucoDictionary dictionary,
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CvSize,
+    ffi.Float,
+    ffi.Float,
+    ArucoDictionary,
+    VecI32,
+    ffi.Pointer<CharucoBoard>,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_2(
+  CvSize size,
+  double squareLength,
+  double markerLength,
+  ArucoDictionary dictionary,
+  VecI32 ids,
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, CvSize, Mat, ffi.Int, ffi.Int, imp$1.CvCallback_0)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_generateImage(
+  CharucoBoard self$1,
+  CvSize outSize,
+  Mat img,
+  int marginSize,
+  int borderBits,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecPoint3f>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getChessboardCorners(
+  CharucoBoard self$1,
+  ffi.Pointer<VecPoint3f> rval,
+);
+
+@ffi.Native<CvSize Function(CharucoBoard)>()
+external CvSize cv_aruco_charucoBoard_getChessboardSize(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecI32>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getIds(
+  CharucoBoard self$1,
+  ffi.Pointer<VecI32> rval,
+);
+
+@ffi.Native<ffi.Bool Function(CharucoBoard)>()
+external bool cv_aruco_charucoBoard_getLegacyPattern(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Float Function(CharucoBoard)>()
+external double cv_aruco_charucoBoard_getMarkerLength(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecVecPoint3f>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getObjPoints(
+  CharucoBoard self$1,
+  ffi.Pointer<VecVecPoint3f> rval,
+);
+
+@ffi.Native<ffi.Float Function(CharucoBoard)>()
+external double cv_aruco_charucoBoard_getSquareLength(
+  CharucoBoard self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, VecPoint2f, VecI32, Mat, Mat, imp$1.CvCallback_0)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_matchImagePoints(
+  CharucoBoard self$1,
+  VecPoint2f detectedCharuco,
+  VecI32 detectedIds,
+  Mat objPoints,
+  Mat imgPoints,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Void Function(CharucoBoard, ffi.Bool)>()
+external void cv_aruco_charucoBoard_setLegacyPattern(
+  CharucoBoard self$1,
+  bool value,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetectorParamsPtr)>()
+external void cv_aruco_charucoDetectorParameters_close(
+  CharucoDetectorParamsPtr self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Pointer<CharucoDetectorParams>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_create(
+  ffi.Pointer<CharucoDetectorParams> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, ffi.Pointer<Mat>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_get_cameraMatrix(
+  CharucoDetectorParams self$1,
+  ffi.Pointer<Mat> rval,
+);
+
+@ffi.Native<ffi.Bool Function(CharucoDetectorParams)>()
+external bool cv_aruco_charucoDetectorParameters_get_checkMarkers(
+  CharucoDetectorParams self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, ffi.Pointer<Mat>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_get_distCoeffs(
+  CharucoDetectorParams self$1,
+  ffi.Pointer<Mat> rval,
+);
+
+@ffi.Native<ffi.Int Function(CharucoDetectorParams)>()
+external int cv_aruco_charucoDetectorParameters_get_minMarkers(
+  CharucoDetectorParams self$1,
+);
+
+@ffi.Native<ffi.Bool Function(CharucoDetectorParams)>()
+external bool cv_aruco_charucoDetectorParameters_get_tryRefineMarkers(
+  CharucoDetectorParams self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, Mat)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_set_cameraMatrix(
+  CharucoDetectorParams self$1,
+  Mat value,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Bool)>()
+external void cv_aruco_charucoDetectorParameters_set_checkMarkers(
+  CharucoDetectorParams self$1,
+  bool value,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, Mat)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_set_distCoeffs(
+  CharucoDetectorParams self$1,
+  Mat value,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Int)>()
+external void cv_aruco_charucoDetectorParameters_set_minMarkers(
+  CharucoDetectorParams self$1,
+  int value,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Bool)>()
+external void cv_aruco_charucoDetectorParameters_set_tryRefineMarkers(
+  CharucoDetectorParams self$1,
+  bool value,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetectorPtr)>()
+external void cv_aruco_charucoDetector_close(
+  CharucoDetectorPtr self$1,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<CharucoDetector>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_1(
+  CharucoBoard board,
+  ffi.Pointer<CharucoDetector> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(CharucoBoard, CharucoDetectorParams, ffi.Pointer<CharucoDetector>)
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_2(
+  CharucoBoard board,
+  CharucoDetectorParams charucoParams,
+  ffi.Pointer<CharucoDetector> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CharucoBoard,
+    CharucoDetectorParams,
+    ArucoDetectorParams,
+    ffi.Pointer<CharucoDetector>,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_3(
+  CharucoBoard board,
+  CharucoDetectorParams charucoParams,
+  ArucoDetectorParams detectorParams,
+  ffi.Pointer<CharucoDetector> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CharucoBoard,
+    CharucoDetectorParams,
+    ArucoDetectorParams,
+    ArucoRefineParams,
+    ffi.Pointer<CharucoDetector>,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_4(
+  CharucoBoard board,
+  CharucoDetectorParams charucoParams,
+  ArucoDetectorParams detectorParams,
+  ArucoRefineParams refineParams,
+  ffi.Pointer<CharucoDetector> rval,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CharucoDetector,
+    Mat,
+    ffi.Pointer<VecPoint2f>,
+    ffi.Pointer<VecI32>,
+    ffi.Pointer<VecVecPoint2f>,
+    ffi.Pointer<VecI32>,
+    imp$1.CvCallback_0,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_detectBoard(
+  CharucoDetector self$1,
+  Mat image,
+  ffi.Pointer<VecPoint2f> out_charucoCorners,
+  ffi.Pointer<VecI32> out_charucoIds,
+  ffi.Pointer<VecVecPoint2f> inout_markerCorners,
+  ffi.Pointer<VecI32> inout_markerIds,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<
+  ffi.Pointer<CvStatus> Function(
+    CharucoDetector,
+    Mat,
+    ffi.Pointer<VecVecPoint2f>,
+    ffi.Pointer<VecVec4i>,
+    ffi.Pointer<VecVecPoint2f>,
+    ffi.Pointer<VecI32>,
+    imp$1.CvCallback_0,
+  )
+>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_detectDiamonds(
+  CharucoDetector self$1,
+  Mat image,
+  ffi.Pointer<VecVecPoint2f> out_diamondCorners,
+  ffi.Pointer<VecVec4i> out_diamondIds,
+  ffi.Pointer<VecVecPoint2f> inout_markerCorners,
+  ffi.Pointer<VecI32> inout_markerIds,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<CharucoBoard>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getBoard(
+  CharucoDetector self$1,
+  ffi.Pointer<CharucoBoard> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<CharucoDetectorParams>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getCharucoParameters(
+  CharucoDetector self$1,
+  ffi.Pointer<CharucoDetectorParams> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<ArucoDetectorParams>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getDetectorParameters(
+  CharucoDetector self$1,
+  ffi.Pointer<ArucoDetectorParams> rval,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<ArucoRefineParams>)>()
+external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getRefineParameters(
+  CharucoDetector self$1,
+  ffi.Pointer<ArucoRefineParams> rval,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetector, CharucoBoard)>()
+external void cv_aruco_charucoDetector_setBoard(
+  CharucoDetector self$1,
+  CharucoBoard board,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetector, CharucoDetectorParams)>()
+external void cv_aruco_charucoDetector_setCharucoParameters(
+  CharucoDetector self$1,
+  CharucoDetectorParams params,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetector, ArucoDetectorParams)>()
+external void cv_aruco_charucoDetector_setDetectorParameters(
+  CharucoDetector self$1,
+  ArucoDetectorParams params,
+);
+
+@ffi.Native<ffi.Void Function(CharucoDetector, ArucoRefineParams)>()
+external void cv_aruco_charucoDetector_setRefineParameters(
+  CharucoDetector self$1,
+  ArucoRefineParams params,
+);
+
 @ffi.Native<ffi.Void Function(ArucoDetectorParamsPtr)>()
 external void cv_aruco_detectorParameters_close(
   ArucoDetectorParamsPtr ap,
@@ -461,350 +780,21 @@ external void cv_aruco_detectorParameters_set_polygonalApproxAccuracyRate(
   double value,
 );
 
-@ffi.Native<ffi.Pointer<CvStatus> Function(Mat, VecVecPoint2f, VecI32, Scalar, imp$1.CvCallback_0)>()
-external ffi.Pointer<CvStatus> cv_aruco_drawDetectedMarkers(
-  Mat image,
-  VecVecPoint2f markerCorners,
-  VecI32 markerIds,
-  Scalar borderColor,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Int, ffi.Int, ffi.Int, ffi.Int, Mat, imp$1.CvCallback_0)>()
-external ffi.Pointer<CvStatus> cv_aruco_generateImageMarker(
-  int dictionaryId,
-  int id,
-  int sidePixels,
-  int borderBits,
-  Mat dst,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<ffi.Void Function(CharucoBoardPtr)>()
-external void cv_aruco_charucoBoard_close(
-  CharucoBoardPtr self$1,
-);
-
-@ffi.Native<ffi.Bool Function(CharucoBoard, VecI32)>()
-external bool cv_aruco_charucoBoard_checkCharucoCornersCollinear(
-  CharucoBoard self$1,
-  VecI32 charucoIds,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Pointer<CharucoBoard>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create(
-  ffi.Pointer<CharucoBoard> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(CvSize, ffi.Float, ffi.Float, ArucoDictionary, ffi.Pointer<CharucoBoard>)
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_1(
-  CvSize size,
-  double squareLength,
-  double markerLength,
-  ArucoDictionary dictionary,
-  ffi.Pointer<CharucoBoard> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(
-    CvSize,
-    ffi.Float,
-    ffi.Float,
-    ArucoDictionary,
-    VecI32,
-    ffi.Pointer<CharucoBoard>,
-  )
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_create_2(
-  CvSize size,
-  double squareLength,
-  double markerLength,
-  ArucoDictionary dictionary,
-  VecI32 ids,
-  ffi.Pointer<CharucoBoard> rval,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, CvSize, Mat, ffi.Int, ffi.Int, imp$1.CvCallback_0)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_generateImage(
-  CharucoBoard self$1,
-  CvSize outSize,
-  Mat img,
-  int marginSize,
-  int borderBits,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecPoint3f>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getChessboardCorners(
-  CharucoBoard self$1,
-  ffi.Pointer<VecPoint3f> rval,
-);
-
-@ffi.Native<CvSize Function(CharucoBoard)>()
-external CvSize cv_aruco_charucoBoard_getChessboardSize(
-  CharucoBoard self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecI32>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getIds(
-  CharucoBoard self$1,
-  ffi.Pointer<VecI32> rval,
-);
-
-@ffi.Native<ffi.Bool Function(CharucoBoard)>()
-external bool cv_aruco_charucoBoard_getLegacyPattern(
-  CharucoBoard self$1,
-);
-
-@ffi.Native<ffi.Float Function(CharucoBoard)>()
-external double cv_aruco_charucoBoard_getMarkerLength(
-  CharucoBoard self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<VecVecPoint3f>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_getObjPoints(
-  CharucoBoard self$1,
-  ffi.Pointer<VecVecPoint3f> rval,
-);
-
-@ffi.Native<ffi.Float Function(CharucoBoard)>()
-external double cv_aruco_charucoBoard_getSquareLength(
-  CharucoBoard self$1,
-);
-
-@ffi.Native<ffi.Void Function(CharucoBoard, ffi.Bool)>()
-external void cv_aruco_charucoBoard_setLegacyPattern(
-  CharucoBoard self$1,
-  bool value,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, VecPoint2f, VecI32, Mat, Mat, imp$1.CvCallback_0)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoBoard_matchImagePoints(
-  CharucoBoard self$1,
-  VecPoint2f detectedCharuco,
-  VecI32 detectedIds,
-  Mat objPoints,
-  Mat imgPoints,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetectorParamsPtr)>()
-external void cv_aruco_charucoDetectorParameters_close(
-  CharucoDetectorParamsPtr self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Pointer<CharucoDetectorParams>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_create(
-  ffi.Pointer<CharucoDetectorParams> rval,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, ffi.Pointer<Mat>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_get_cameraMatrix(
-  CharucoDetectorParams self$1,
-  ffi.Pointer<Mat> rval,
-);
-
-@ffi.Native<ffi.Bool Function(CharucoDetectorParams)>()
-external bool cv_aruco_charucoDetectorParameters_get_checkMarkers(
-  CharucoDetectorParams self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, ffi.Pointer<Mat>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_get_distCoeffs(
-  CharucoDetectorParams self$1,
-  ffi.Pointer<Mat> rval,
-);
-
-@ffi.Native<ffi.Int Function(CharucoDetectorParams)>()
-external int cv_aruco_charucoDetectorParameters_get_minMarkers(
-  CharucoDetectorParams self$1,
-);
-
-@ffi.Native<ffi.Bool Function(CharucoDetectorParams)>()
-external bool cv_aruco_charucoDetectorParameters_get_tryRefineMarkers(
-  CharucoDetectorParams self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, Mat)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_set_cameraMatrix(
-  CharucoDetectorParams self$1,
-  Mat value,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Bool)>()
-external void cv_aruco_charucoDetectorParameters_set_checkMarkers(
-  CharucoDetectorParams self$1,
-  bool value,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetectorParams, Mat)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetectorParameters_set_distCoeffs(
-  CharucoDetectorParams self$1,
-  Mat value,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Int)>()
-external void cv_aruco_charucoDetectorParameters_set_minMarkers(
-  CharucoDetectorParams self$1,
-  int value,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetectorParams, ffi.Bool)>()
-external void cv_aruco_charucoDetectorParameters_set_tryRefineMarkers(
-  CharucoDetectorParams self$1,
-  bool value,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetectorPtr)>()
-external void cv_aruco_charucoDetector_close(
-  CharucoDetectorPtr self$1,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoBoard, ffi.Pointer<CharucoDetector>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_1(
-  CharucoBoard board,
-  ffi.Pointer<CharucoDetector> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(CharucoBoard, CharucoDetectorParams, ffi.Pointer<CharucoDetector>)
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_2(
-  CharucoBoard board,
-  CharucoDetectorParams charucoParams,
-  ffi.Pointer<CharucoDetector> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(
-    CharucoBoard,
-    CharucoDetectorParams,
-    ArucoDetectorParams,
-    ffi.Pointer<CharucoDetector>,
-  )
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_3(
-  CharucoBoard board,
-  CharucoDetectorParams charucoParams,
-  ArucoDetectorParams detectorParams,
-  ffi.Pointer<CharucoDetector> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(
-    CharucoBoard,
-    CharucoDetectorParams,
-    ArucoDetectorParams,
-    ArucoRefineParams,
-    ffi.Pointer<CharucoDetector>,
-  )
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_create_4(
-  CharucoBoard board,
-  CharucoDetectorParams charucoParams,
-  ArucoDetectorParams detectorParams,
-  ArucoRefineParams refineParams,
-  ffi.Pointer<CharucoDetector> rval,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(
-    CharucoDetector,
-    Mat,
-    ffi.Pointer<VecPoint2f>,
-    ffi.Pointer<VecI32>,
-    ffi.Pointer<VecVecPoint2f>,
-    ffi.Pointer<VecI32>,
-    imp$1.CvCallback_0,
-  )
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_detectBoard(
-  CharucoDetector self$1,
-  Mat image,
-  ffi.Pointer<VecPoint2f> out_charucoCorners,
-  ffi.Pointer<VecI32> out_charucoIds,
-  ffi.Pointer<VecVecPoint2f> inout_markerCorners,
-  ffi.Pointer<VecI32> inout_markerIds,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<
-  ffi.Pointer<CvStatus> Function(
-    CharucoDetector,
-    Mat,
-    ffi.Pointer<VecVecPoint2f>,
-    ffi.Pointer<VecVec4i>,
-    ffi.Pointer<VecVecPoint2f>,
-    ffi.Pointer<VecI32>,
-    imp$1.CvCallback_0,
-  )
->()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_detectDiamonds(
-  CharucoDetector self$1,
-  Mat image,
-  ffi.Pointer<VecVecPoint2f> out_diamondCorners,
-  ffi.Pointer<VecVec4i> out_diamondIds,
-  ffi.Pointer<VecVecPoint2f> inout_markerCorners,
-  ffi.Pointer<VecI32> inout_markerIds,
-  imp$1.CvCallback_0 callback,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<CharucoBoard>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getBoard(
-  CharucoDetector self$1,
-  ffi.Pointer<CharucoBoard> rval,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<CharucoDetectorParams>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getCharucoParameters(
-  CharucoDetector self$1,
-  ffi.Pointer<CharucoDetectorParams> rval,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<ArucoDetectorParams>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getDetectorParameters(
-  CharucoDetector self$1,
-  ffi.Pointer<ArucoDetectorParams> rval,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(CharucoDetector, ffi.Pointer<ArucoRefineParams>)>()
-external ffi.Pointer<CvStatus> cv_aruco_charucoDetector_getRefineParameters(
-  CharucoDetector self$1,
-  ffi.Pointer<ArucoRefineParams> rval,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetector, CharucoBoard)>()
-external void cv_aruco_charucoDetector_setBoard(
-  CharucoDetector self$1,
-  CharucoBoard board,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetector, CharucoDetectorParams)>()
-external void cv_aruco_charucoDetector_setCharucoParameters(
-  CharucoDetector self$1,
-  CharucoDetectorParams params,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetector, ArucoDetectorParams)>()
-external void cv_aruco_charucoDetector_setDetectorParameters(
-  CharucoDetector self$1,
-  ArucoDetectorParams params,
-);
-
-@ffi.Native<ffi.Void Function(CharucoDetector, ArucoRefineParams)>()
-external void cv_aruco_charucoDetector_setRefineParameters(
-  CharucoDetector self$1,
-  ArucoRefineParams params,
-);
-
 @ffi.Native<ffi.Pointer<CvStatus> Function(Mat, VecPoint2f, VecI32, Scalar, imp$1.CvCallback_0)>()
 external ffi.Pointer<CvStatus> cv_aruco_drawDetectedCornersCharuco(
   Mat image,
   VecPoint2f charucoCorners,
   VecI32 charucoIds,
   Scalar cornerColor,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(Mat, VecVecPoint2f, VecI32, Scalar, imp$1.CvCallback_0)>()
+external ffi.Pointer<CvStatus> cv_aruco_drawDetectedMarkers(
+  Mat image,
+  VecVecPoint2f markerCorners,
+  VecI32 markerIds,
+  Scalar borderColor,
   imp$1.CvCallback_0 callback,
 );
 
@@ -833,6 +823,22 @@ external ffi.Pointer<CvStatus> cv_aruco_estimatePoseCharucoBoard(
   bool useExtrinsicGuess,
   ffi.Pointer<ffi.Bool> rval,
   imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Int, ffi.Int, ffi.Int, ffi.Int, Mat, imp$1.CvCallback_0)>()
+external ffi.Pointer<CvStatus> cv_aruco_generateImageMarker(
+  int dictionaryId,
+  int id,
+  int sidePixels,
+  int borderBits,
+  Mat dst,
+  imp$1.CvCallback_0 callback,
+);
+
+@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Int, ffi.Pointer<ArucoDictionary>)>()
+external ffi.Pointer<CvStatus> cv_aruco_getPredefinedDictionary(
+  int dictionaryId,
+  ffi.Pointer<ArucoDictionary> rval,
 );
 
 @ffi.Native<ffi.Void Function(ArucoRefineParamsPtr)>()
@@ -884,12 +890,6 @@ external void cv_aruco_refineParameters_set_errorCorrectionRate(
 external void cv_aruco_refineParameters_set_minRepDistance(
   ArucoRefineParams self$1,
   double value,
-);
-
-@ffi.Native<ffi.Pointer<CvStatus> Function(ffi.Int, ffi.Pointer<ArucoDictionary>)>()
-external ffi.Pointer<CvStatus> cv_aruco_getPredefinedDictionary(
-  int dictionaryId,
-  ffi.Pointer<ArucoDictionary> rval,
 );
 
 @ffi.Native<ffi.Void Function(FreeType2Ptr)>()
@@ -1953,19 +1953,19 @@ class _SymbolAddresses {
   const _SymbolAddresses();
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDictionaryPtr)>> get cv_aruco_Dictionary_close =>
       ffi.Native.addressOf(self.cv_aruco_Dictionary_close);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDetectorPtr)>> get cv_aruco_arucoDetector_close =>
+      ffi.Native.addressOf(self.cv_aruco_arucoDetector_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(CharucoBoardPtr)>> get cv_aruco_charucoBoard_close =>
       ffi.Native.addressOf(self.cv_aruco_charucoBoard_close);
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(CharucoDetectorPtr)>> get cv_aruco_charucoDetector_close =>
-      ffi.Native.addressOf(self.cv_aruco_charucoDetector_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(CharucoDetectorParamsPtr)>>
   get cv_aruco_charucoDetectorParameters_close =>
       ffi.Native.addressOf(self.cv_aruco_charucoDetectorParameters_close);
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDetectorPtr)>> get cv_aruco_arucoDetector_close =>
-      ffi.Native.addressOf(self.cv_aruco_arucoDetector_close);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(CharucoDetectorPtr)>> get cv_aruco_charucoDetector_close =>
+      ffi.Native.addressOf(self.cv_aruco_charucoDetector_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoDetectorParamsPtr)>>
   get cv_aruco_detectorParameters_close => ffi.Native.addressOf(self.cv_aruco_detectorParameters_close);
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoRefineParamsPtr)>> get cv_aruco_refineParameters_close =>
-      ffi.Native.addressOf(self.cv_aruco_refineParameters_close);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ArucoRefineParamsPtr)>>
+  get cv_aruco_refineParameters_close => ffi.Native.addressOf(self.cv_aruco_refineParameters_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(FreeType2Ptr)>> get cv_freetype_FreeType2_close =>
       ffi.Native.addressOf(self.cv_freetype_FreeType2_close);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(BlockMeanHashPtr)>> get cv_img_hash_BlockMeanHash_close =>
@@ -2008,34 +2008,17 @@ final class ArucoDetectorParams extends ffi.Struct {
 typedef ArucoDetectorParamsPtr = ffi.Pointer<ArucoDetectorParams>;
 typedef ArucoDetectorPtr = ffi.Pointer<ArucoDetector>;
 
-final class ArucoRefineParams extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-typedef ArucoRefineParamsPtr = ffi.Pointer<ArucoRefineParams>;
-
 final class ArucoDictionary extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
 }
 
 typedef ArucoDictionaryPtr = ffi.Pointer<ArucoDictionary>;
 
-final class CharucoBoard extends ffi.Struct {
+final class ArucoRefineParams extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ptr;
 }
 
-typedef CharucoBoardPtr = ffi.Pointer<CharucoBoard>;
-
-final class CharucoDetector extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-final class CharucoDetectorParams extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ptr;
-}
-
-typedef CharucoDetectorParamsPtr = ffi.Pointer<CharucoDetectorParams>;
-typedef CharucoDetectorPtr = ffi.Pointer<CharucoDetector>;
+typedef ArucoRefineParamsPtr = ffi.Pointer<ArucoRefineParams>;
 
 const int BLOCK_MEAN_HASH_MODE_0 = 0;
 
@@ -2064,6 +2047,22 @@ final class Box extends ffi.Struct {
   external int y;
 }
 
+final class CharucoBoard extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+typedef CharucoBoardPtr = ffi.Pointer<CharucoBoard>;
+
+final class CharucoDetector extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+final class CharucoDetectorParams extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ptr;
+}
+
+typedef CharucoDetectorParamsPtr = ffi.Pointer<CharucoDetectorParams>;
+typedef CharucoDetectorPtr = ffi.Pointer<CharucoDetector>;
 typedef CvPoint = imp$1.CvPoint;
 typedef CvSize = imp$1.CvSize;
 typedef CvStatus = imp$1.CvStatus;
@@ -2190,8 +2189,8 @@ typedef VecPoint2f = imp$1.VecPoint2f;
 typedef VecPoint3f = imp$1.VecPoint3f;
 typedef VecPoint3i = imp$1.VecPoint3i;
 typedef VecRect = imp$1.VecRect;
-typedef VecVecChar = imp$1.VecVecChar;
 typedef VecVec4i = imp$1.VecVec4i;
+typedef VecVecChar = imp$1.VecVecChar;
 typedef VecVecPoint = imp$1.VecVecPoint;
 typedef VecVecPoint2f = imp$1.VecVecPoint2f;
 typedef VecVecPoint3f = imp$1.VecVecPoint3f;
