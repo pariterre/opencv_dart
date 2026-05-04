@@ -100,20 +100,9 @@ class ArucoDictionary extends CvStruct<cvg.ArucoDictionary> {
     return ArucoDictionary._(p);
   }
 
-  factory ArucoDictionary.fromBytesList(
-    Mat bytesList,
-    int markerSize, {
-    int maxCorr = 0,
-  }) {
+  factory ArucoDictionary.fromBytesList(Mat bytesList, int markerSize, {int maxCorr = 0}) {
     final p = calloc<cvg.ArucoDictionary>();
-    cvRun(
-      () => ccontrib.cv_aruco_Dictionary_create_1(
-        bytesList.ref,
-        markerSize,
-        maxCorr,
-        p,
-      ),
-    );
+    cvRun(() => ccontrib.cv_aruco_Dictionary_create_1(bytesList.ref, markerSize, maxCorr, p));
     return ArucoDictionary._(p);
   }
 
@@ -123,46 +112,19 @@ class ArucoDictionary extends CvStruct<cvg.ArucoDictionary> {
     return ArucoDictionary._(p);
   }
 
-  Mat generateImageMarker(
-    int id,
-    int sidePixels, {
-    OutputArray? dst,
-    int borderBits = 1,
-  }) {
+  Mat generateImageMarker(int id, int sidePixels, {OutputArray? dst, int borderBits = 1}) {
     dst ??= Mat.empty();
-    cvRun(
-      () => ccontrib.cv_aruco_Dictionary_generateImageMarker(
-        ref,
-        id,
-        sidePixels,
-        dst!.ref,
-        borderBits,
-      ),
-    );
+    cvRun(() => ccontrib.cv_aruco_Dictionary_generateImageMarker(ref, id, sidePixels, dst!.ref, borderBits));
     return dst;
   }
 
   int getDistanceToId(InputArray bits, int id, {bool allRotations = true}) =>
-      ccontrib.cv_aruco_Dictionary_getDistanceToId(
-        ref,
-        bits.ref,
-        id,
-        allRotations,
-      );
+      ccontrib.cv_aruco_Dictionary_getDistanceToId(ref, bits.ref, id, allRotations);
 
-  (bool rval, int idx, int rotation) identify(
-    InputArray onlyBits,
-    double maxCorrectionRate,
-  ) {
+  (bool rval, int idx, int rotation) identify(InputArray onlyBits, double maxCorrectionRate) {
     final pIdx = calloc<ffi.Int>();
     final pRotation = calloc<ffi.Int>();
-    final rval = ccontrib.cv_aruco_Dictionary_identify(
-      ref,
-      onlyBits.ref,
-      pIdx,
-      pRotation,
-      maxCorrectionRate,
-    );
+    final rval = ccontrib.cv_aruco_Dictionary_identify(ref, onlyBits.ref, pIdx, pRotation, maxCorrectionRate);
     final ret = (rval, pIdx.value, pRotation.value);
     calloc.free(pIdx);
     calloc.free(pRotation);
@@ -187,9 +149,7 @@ class ArucoDictionary extends CvStruct<cvg.ArucoDictionary> {
 
   @override
   cvg.ArucoDictionary get ref => ptr.ref;
-  static final finalizer = OcvFinalizer<cvg.ArucoDictionaryPtr>(
-    ccontrib.addresses.cv_aruco_Dictionary_close,
-  );
+  static final finalizer = OcvFinalizer<cvg.ArucoDictionaryPtr>(ccontrib.addresses.cv_aruco_Dictionary_close);
 
   void dispose() {
     finalizer.detach(this);

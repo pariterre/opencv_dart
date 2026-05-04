@@ -24,10 +24,8 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
     }
   }
 
-  factory CharucoBoard.fromPointer(
-    cvg.CharucoBoardPtr ptr, [
-    bool attach = true,
-  ]) => CharucoBoard._(ptr, attach);
+  factory CharucoBoard.fromPointer(cvg.CharucoBoardPtr ptr, [bool attach = true]) =>
+      CharucoBoard._(ptr, attach);
 
   factory CharucoBoard.empty() {
     final p = calloc<cvg.CharucoBoard>();
@@ -46,13 +44,7 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
     final sz = size.cvd;
     cvRun(
       () => ids == null
-          ? ccontrib.cv_aruco_charucoBoard_create_1(
-              sz.ref,
-              squareLength,
-              markerLength,
-              dictionary.ref,
-              p,
-            )
+          ? ccontrib.cv_aruco_charucoBoard_create_1(sz.ref, squareLength, markerLength, dictionary.ref, p)
           : ccontrib.cv_aruco_charucoBoard_create_2(
               sz.ref,
               squareLength,
@@ -68,9 +60,7 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
 
   @override
   cvg.CharucoBoard get ref => ptr.ref;
-  static final finalizer = OcvFinalizer<cvg.CharucoBoardPtr>(
-    ccontrib.addresses.cv_aruco_charucoBoard_close,
-  );
+  static final finalizer = OcvFinalizer<cvg.CharucoBoardPtr>(ccontrib.addresses.cv_aruco_charucoBoard_close);
 
   void dispose() {
     finalizer.detach(this);
@@ -80,12 +70,7 @@ class CharucoBoard extends CvStruct<cvg.CharucoBoard> {
   bool checkCharucoCornersCollinear(VecI32 charucoIds) =>
       ccontrib.cv_aruco_charucoBoard_checkCharucoCornersCollinear(ref, charucoIds.ref);
 
-  Mat generateImage(
-    (int, int) outSize, {
-    OutputArray? img,
-    int marginSize = 0,
-    int borderBits = 1,
-  }) {
+  Mat generateImage((int, int) outSize, {OutputArray? img, int marginSize = 0, int borderBits = 1}) {
     img ??= Mat.empty();
     final size = outSize.cvd;
     cvRun(

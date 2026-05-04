@@ -42,12 +42,8 @@ class ArucoRefineParameters extends CvStruct<cvg.ArucoRefineParams> {
   }) {
     final p = calloc<cvg.ArucoRefineParams>();
     cvRun(
-      () => ccontrib.cv_aruco_refineParameters_create_1(
-        minRepDistance,
-        errorCorrectionRate,
-        checkAllOrders,
-        p,
-      ),
+      () =>
+          ccontrib.cv_aruco_refineParameters_create_1(minRepDistance, errorCorrectionRate, checkAllOrders, p),
     );
     return ArucoRefineParameters._(p);
   }
@@ -78,7 +74,8 @@ class ArucoRefineParameters extends CvStruct<cvg.ArucoRefineParams> {
 }
 
 class CharucoDetectorParameters extends CvStruct<cvg.CharucoDetectorParams> {
-  CharucoDetectorParameters._(cvg.CharucoDetectorParamsPtr ptr, [bool attach = true]) : super.fromPointer(ptr) {
+  CharucoDetectorParameters._(cvg.CharucoDetectorParamsPtr ptr, [bool attach = true])
+    : super.fromPointer(ptr) {
     if (attach) {
       finalizer.attach(this, ptr.cast(), detach: this);
     }
@@ -110,7 +107,8 @@ class CharucoDetectorParameters extends CvStruct<cvg.CharucoDetectorParams> {
     return out;
   }
 
-  set cameraMatrix(Mat value) => cvRun(() => ccontrib.cv_aruco_charucoDetectorParameters_set_cameraMatrix(ref, value.ref));
+  set cameraMatrix(Mat value) =>
+      cvRun(() => ccontrib.cv_aruco_charucoDetectorParameters_set_cameraMatrix(ref, value.ref));
 
   Mat get distCoeffs {
     final out = Mat.empty();
@@ -118,7 +116,8 @@ class CharucoDetectorParameters extends CvStruct<cvg.CharucoDetectorParams> {
     return out;
   }
 
-  set distCoeffs(Mat value) => cvRun(() => ccontrib.cv_aruco_charucoDetectorParameters_set_distCoeffs(ref, value.ref));
+  set distCoeffs(Mat value) =>
+      cvRun(() => ccontrib.cv_aruco_charucoDetectorParameters_set_distCoeffs(ref, value.ref));
 
   int get minMarkers => ccontrib.cv_aruco_charucoDetectorParameters_get_minMarkers(ref);
 
@@ -158,8 +157,9 @@ class CharucoDetector extends CvStruct<cvg.CharucoDetector> {
   }) {
     final p = calloc<cvg.CharucoDetector>();
     final ownedCharucoParameters = charucoParameters == null ? CharucoDetectorParameters.empty() : null;
-    final ownedDetectorParameters =
-        refineParameters != null && detectorParameters == null ? ArucoDetectorParameters.empty() : null;
+    final ownedDetectorParameters = refineParameters != null && detectorParameters == null
+        ? ArucoDetectorParameters.empty()
+        : null;
     final charucoParams = charucoParameters ?? ownedCharucoParameters!;
     final detectorParams = detectorParameters ?? ownedDetectorParameters;
     try {
@@ -231,11 +231,8 @@ class CharucoDetector extends CvStruct<cvg.CharucoDetector> {
     return (charucoCorners, charucoIds, markerCorners, markerIds);
   }
 
-  (VecVecPoint2f diamondCorners, VecVec4i diamondIds, VecVecPoint2f markerCorners, VecI32 markerIds) detectDiamonds(
-    InputArray image, {
-    VecVecPoint2f? markerCorners,
-    VecI32? markerIds,
-  }) {
+  (VecVecPoint2f diamondCorners, VecVec4i diamondIds, VecVecPoint2f markerCorners, VecI32 markerIds)
+  detectDiamonds(InputArray image, {VecVecPoint2f? markerCorners, VecI32? markerIds}) {
     final diamondCorners = VecVecPoint2f();
     final diamondIds = VecVec4i();
     markerCorners ??= VecVecPoint2f();

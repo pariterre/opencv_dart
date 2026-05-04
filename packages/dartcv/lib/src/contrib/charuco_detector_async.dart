@@ -19,19 +19,8 @@ import 'charuco_board.dart';
 import 'charuco_detector.dart';
 
 extension CharucoDetectorAsync on CharucoDetector {
-  Future<
-    (
-      VecPoint2f charucoCorners,
-      VecI32 charucoIds,
-      VecVecPoint2f markerCorners,
-      VecI32 markerIds,
-    )
-  >
-  detectBoardAsync(
-    InputArray image, {
-    VecVecPoint2f? markerCorners,
-    VecI32? markerIds,
-  }) async {
+  Future<(VecPoint2f charucoCorners, VecI32 charucoIds, VecVecPoint2f markerCorners, VecI32 markerIds)>
+  detectBoardAsync(InputArray image, {VecVecPoint2f? markerCorners, VecI32? markerIds}) async {
     final charucoCorners = VecPoint2f();
     final charucoIds = VecI32();
     markerCorners ??= VecVecPoint2f();
@@ -50,19 +39,8 @@ extension CharucoDetectorAsync on CharucoDetector {
     );
   }
 
-  Future<
-    (
-      VecVecPoint2f diamondCorners,
-      VecVec4i diamondIds,
-      VecVecPoint2f markerCorners,
-      VecI32 markerIds,
-    )
-  >
-  detectDiamondsAsync(
-    InputArray image, {
-    VecVecPoint2f? markerCorners,
-    VecI32? markerIds,
-  }) async {
+  Future<(VecVecPoint2f diamondCorners, VecVec4i diamondIds, VecVecPoint2f markerCorners, VecI32 markerIds)>
+  detectDiamondsAsync(InputArray image, {VecVecPoint2f? markerCorners, VecI32? markerIds}) async {
     final diamondCorners = VecVecPoint2f();
     final diamondIds = VecVec4i();
     markerCorners ??= VecVecPoint2f();
